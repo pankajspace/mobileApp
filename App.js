@@ -10,7 +10,7 @@ export default function App() {
       <Text>{text}</Text>
       <Button
         title="Click Me"
-        onPress={() => setText("Hi There! You clicked button.")}
+        onPress={() => setText("code chang from ashutosh branch")}
       />
       <StatusBar style="auto" />
     </View>
