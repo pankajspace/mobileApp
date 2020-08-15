@@ -3,6 +3,6 @@
 3) Install git: https://git-scm.com/downloads
 4) Clone the git repository: https://github.com/pankajspace/mobileApp.git
 5) We will create a separate branch per developer. develop branch will act as integration branch
-6) Run command: git checkout <your name>. Start coding!!!
+6) Run command: git checkout {your name}. Start coding!!!
 5) Inside the repository run command: expo start (Refer https://expo.io/learn for more details)
 6) Install the Expo app from google play store
