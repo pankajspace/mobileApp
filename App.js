@@ -9,8 +9,8 @@ export default function App() {
     <View style={styles.container}>
       <Text>{text}</Text>
       <Button
-        title="Click Me"
-        onPress={() => setText("code chang from ashutosh branch")}
+        title="Click Me once."
+        onPress={() => setText("Hi There! You clicked button.")}
       />
       <StatusBar style="auto" />
     </View>
