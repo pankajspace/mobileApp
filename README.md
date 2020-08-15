@@ -7,3 +7,15 @@
 7) Run command: git checkout {your name}. Then run npm install. Start coding!!!
 8) Inside the repository run command: expo start (Refer https://expo.io/learn for more details)
 9) Install the Expo app from google play store
+
+Git Commands
+
+1. git branch - to see all branches
+2. git pull - to pull all latest branches
+3. git checkout <branch name> - to check-out branch
+4. git status - to see if we have shifted to new branch
+5. make the code change
+6. git add .  - to add all files for commit
+7. git commit -m "commit message" - commit to git
+8. git push - push to git, it may ask to login to github
+9. goto github web interface to create the pull request.
