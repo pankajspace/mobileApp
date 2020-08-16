@@ -22,5 +22,5 @@ List of Git commands in sequence:
 10. git stash pop: bring out your locally saved changes on branch. If any conflicts occur after this command then resolve conflicts
 11. git add .
 12. git commit -m "commit message"
-13. git push
+13. git push: To push your changes to remote repository on git
 14. Goto github web interface to create the pull request
