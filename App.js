@@ -9,7 +9,7 @@ export default function App() {
     <View style={styles.container}>
       <Text>{text}</Text>
       <Button
-        title="Click Me"
+        title="Click Me once."
         onPress={() => setText("Hi There! You clicked button.")}
       />
       <StatusBar style="auto" />
