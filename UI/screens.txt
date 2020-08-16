@@ -1,0 +1,51 @@
+1)Home:
+    Signup
+    Login
+
+
+2)Signup:
+    firstname
+    lastname
+    mobile
+    email
+    address
+    city
+    pincode
+
+
+3)login:
+    mobile
+    otp textbox
+    generate otp button
+    
+
+4)Customer homepage:
+    My profile link
+    highlight section
+    services cards/icons:
+        Electrical wiring:
+            inhouse wiring dropdown 
+            industrial wiring deopdown
+        Fitting maintainance
+        new order
+    contact us 
+
+
+5)New screen for each icon above:
+
+
+6)User/Worker Profile:    
+    my orders    
+
+
+7)Worker screen:
+    Workers profile link
+    List of requests
+
+
+9)Admin screen:
+    requests list
+    workers list
+
+
+
