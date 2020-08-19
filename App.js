@@ -7,6 +7,7 @@ import { AppLoading } from "expo";
 import { CONSTANTS } from "./constants/constants";
 import CustomerScreen from "./screens/CustomerScreen";
 import WorkerScreen from "./screens/WorkerScreen";
+import { language } from "./language/language";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -18,9 +19,14 @@ const fetchFonts = () => {
 export default function App() {
   const [appLoaded, setDataLoaded] = useState(false);
   const [screen, setScreen] = useState(CONSTANTS.CUSTOMER);
+  const [currentLanguage, setLanguage] = useState(language.en);
 
   const handleScreenChange = (screen) => {
     setScreen(screen);
+  };
+
+  const handleLanguageChange = (language) => {
+    setLanguage(language);
   };
 
   if (!appLoaded) {
@@ -37,15 +43,27 @@ export default function App() {
     switch (screen) {
       case CONSTANTS.CUSTOMER:
         return (
-          <CustomerScreen onScreenChange={handleScreenChange}></CustomerScreen>
+          <CustomerScreen
+            currentLanguage={currentLanguage}
+            onScreenChange={handleScreenChange}
+            onLanguageChange={handleLanguageChange}
+          ></CustomerScreen>
         );
       case CONSTANTS.WORKER:
         return (
-          <WorkerScreen onScreenChange={handleScreenChange}></WorkerScreen>
+          <WorkerScreen
+            currentLanguage={currentLanguage}
+            onScreenChange={handleScreenChange}
+            onLanguageChange={handleLanguageChange}
+          ></WorkerScreen>
         );
       default:
         return (
-          <CustomerScreen onScreenChange={handleScreenChange}></CustomerScreen>
+          <CustomerScreen
+            currentLanguage={currentLanguage}
+            onScreenChange={handleScreenChange}
+            onLanguageChange={handleLanguageChange}
+          ></CustomerScreen>
         );
     }
   };

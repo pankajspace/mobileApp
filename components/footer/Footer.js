@@ -5,6 +5,7 @@ import { Icon } from "react-native-elements";
 import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
 import { CONSTANTS } from "../../constants/constants";
+import { language } from "../../language/language";
 
 const Footer = (props) => (
   <View style={[styles.container, props.style]}>
@@ -15,6 +16,11 @@ const Footer = (props) => (
       name="arrow-back"
       color="white"
       onPress={props.onScreenChange.bind(this, CONSTANTS.CUSTOMER)}
+    />
+    <Icon
+      name="translate"
+      color="white"
+      onPress={props.onLanguageChange.bind(this, language.hi)}
     />
     <Icon
       name="arrow-forward"

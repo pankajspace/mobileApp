@@ -4,7 +4,7 @@ export const language = {
     workerWelcome: "Welcome Worker",
   },
   hi: {
-    customerWelcome: "ग्राहक का स्वागत करते हैं",
-    workerWelcome: "कार्यकर्ता का स्वागत",
+    customerWelcome: "ग्राहक का स्वागत हैं",
+    workerWelcome: "कार्यकर्ता का स्वागत हैं",
   },
 };
