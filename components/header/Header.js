@@ -1,5 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
+import { Icon } from "react-native-elements";
+
 import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
 
@@ -8,16 +10,19 @@ const Header = (props) => (
     <Text style={[GlobalStyles.textOpenSansBold, styles.titleText]}>
       {props.children}
     </Text>
+    {/*     
     <Image
       style={styles.image}
       source={require("../../assets/img/profile.png")}
-    />
+    /> 
+    */}
+    <Icon name="face" color="white" />
   </View>
 );
 
 const styles = StyleSheet.create({
   titleText: {
-    fontSize: 20,
+    fontSize: 16,
     color: "white",
   },
   container: {
@@ -29,14 +34,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 20,
   },
-  image: {
-    width: "10",
-    height: "60",
-    borderWidth: 1,
-    borderColor: "white",
-    borderRadius: 20,
-    padding: 15,
-  },
+  image: {},
 });
 
 export default Header;
