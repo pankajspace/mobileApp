@@ -4,13 +4,15 @@ import { StyleSheet, View } from "react-native";
 import Worker from "../components/worker/Worker";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
-import { language } from "../language/language";
 
 const WorkerScreen = (props) => (
   <View style={styles.container}>
-    <Header>{language.hi.workerWelcome}</Header>
+    <Header>{props.currentLanguage.workerWelcome}</Header>
     <Worker></Worker>
-    <Footer onScreenChange={props.onScreenChange}></Footer>
+    <Footer
+      onScreenChange={props.onScreenChange}
+      onLanguageChange={props.onLanguageChange}
+    ></Footer>
   </View>
 );
 
