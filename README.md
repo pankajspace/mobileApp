@@ -10,6 +10,7 @@ Setup instructions:
 9. Install the Expo app from google play store
 
 
+
 List of Git commands in sequence:
 1. git status: gives current status of your repo
 2. See above status to make sure you to your branch before starting to code
@@ -24,3 +25,12 @@ List of Git commands in sequence:
 12. git commit -m "commit message"
 13. git push: To push your changes to remote repository on git
 14. Goto github web interface to create the pull request
+
+
+
+Useful links:
+1. https://reactjs.org/docs/getting-started.html
+2. https://reactnative.dev/docs/getting-started
+3. https://docs.expo.io/tutorial/planning/?redirected
+4. https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+5. https://snack.expo.io/
