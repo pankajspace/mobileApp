@@ -1,13 +1,26 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { Icon } from "react-native-elements";
+
 import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
+import { CONSTANTS } from "../../constants/constants";
 
 const Footer = (props) => (
   <View style={[styles.container, props.style]}>
     <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
       {"Contact Us"}
     </Text>
+    <Icon
+      name="arrow-back"
+      color="white"
+      onPress={props.onScreenChange.bind(this, CONSTANTS.CUSTOMER)}
+    />
+    <Icon
+      name="arrow-forward"
+      color="white"
+      onPress={props.onScreenChange.bind(this, CONSTANTS.WORKER)}
+    />
     <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
       {"About Us"}
     </Text>

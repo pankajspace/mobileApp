@@ -4,7 +4,9 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
+import { CONSTANTS } from "./constants/constants";
 import CustomerScreen from "./screens/CustomerScreen";
+import WorkerScreen from "./screens/WorkerScreen";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -15,6 +17,12 @@ const fetchFonts = () => {
 
 export default function App() {
   const [appLoaded, setDataLoaded] = useState(false);
+  const [screen, setScreen] = useState(CONSTANTS.CUSTOMER);
+
+  const handleScreenChange = (screen) => {
+    setScreen(screen);
+  };
+
   if (!appLoaded) {
     return (
       <AppLoading
@@ -25,9 +33,26 @@ export default function App() {
     );
   }
 
+  const renderScreen = () => {
+    switch (screen) {
+      case CONSTANTS.CUSTOMER:
+        return (
+          <CustomerScreen onScreenChange={handleScreenChange}></CustomerScreen>
+        );
+      case CONSTANTS.WORKER:
+        return (
+          <WorkerScreen onScreenChange={handleScreenChange}></WorkerScreen>
+        );
+      default:
+        return (
+          <CustomerScreen onScreenChange={handleScreenChange}></CustomerScreen>
+        );
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <CustomerScreen></CustomerScreen>
+      {renderScreen()}
       <StatusBar style="auto" />
     </View>
   );
