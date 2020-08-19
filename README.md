@@ -29,8 +29,10 @@ List of Git commands in sequence:
 
 
 Useful links:
-1. https://reactjs.org/docs/getting-started.html
-2. https://reactnative.dev/docs/getting-started
-3. https://docs.expo.io/tutorial/planning/?redirected
-4. https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
-5. https://snack.expo.io/
+1. ReactJs Docs: https://reactjs.org/docs/getting-started.html
+2. React Native Docs: https://reactnative.dev/docs/getting-started
+3. React Native Flexbox: https://reactnative.dev/docs/flexbox
+4. Expo Doc: https://docs.expo.io/tutorial/planning/
+5. Online editor for running ReactJs code: https://codesandbox.io/
+6. Online editor for running React Native code: https://snack.expo.io/
+7. Git Workflow: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
