@@ -1,15 +1,16 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import Customer from "../components/customer/Customer";
+import Worker from "../components/worker/Worker";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 
-const CustomerScreen = (props) => (
+const WorkerScreen = (props) => (
   <View style={styles.container}>
-    <Header>{props.currentLanguage.customerWelcome}</Header>
-    <Customer></Customer>
+    <Header>{props.currentLanguage.workerWelcome}</Header>
+    <Worker></Worker>
     <Footer
+      currentLanguage={props.currentLanguage}
       onScreenChange={props.onScreenChange}
       onLanguageChange={props.onLanguageChange}
     ></Footer>
@@ -20,4 +21,4 @@ const styles = StyleSheet.create({
   container: {},
 });
 
-export default CustomerScreen;
+export default WorkerScreen;

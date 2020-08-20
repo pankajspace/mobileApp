@@ -5,8 +5,8 @@ import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
 import { CONSTANTS } from "./constants/constants";
-import CustomerScreen from "./views/CustomerScreen";
-import WorkerScreen from "./views/WorkerScreen";
+import CustomerView from "./views/CustomerView";
+import WorkerView from "./views/WorkerView";
 import { language } from "./language/language";
 
 const fetchFonts = () => {
@@ -27,7 +27,7 @@ export default function App() {
 
   const handleLanguageChange = (selectedLanguage) => {
     currentLanguage.id == "en"
-      ? setLanguage(language.hi)
+      ? setLanguage(language.mr)
       : setLanguage(language.en);
   };
 
@@ -45,27 +45,27 @@ export default function App() {
     switch (screen) {
       case CONSTANTS.CUSTOMER:
         return (
-          <CustomerScreen
+          <CustomerView
             currentLanguage={currentLanguage}
             onScreenChange={handleScreenChange}
             onLanguageChange={handleLanguageChange}
-          ></CustomerScreen>
+          ></CustomerView>
         );
       case CONSTANTS.WORKER:
         return (
-          <WorkerScreen
+          <WorkerView
             currentLanguage={currentLanguage}
             onScreenChange={handleScreenChange}
             onLanguageChange={handleLanguageChange}
-          ></WorkerScreen>
+          ></WorkerView>
         );
       default:
         return (
-          <CustomerScreen
+          <CustomerView
             currentLanguage={currentLanguage}
             onScreenChange={handleScreenChange}
             onLanguageChange={handleLanguageChange}
-          ></CustomerScreen>
+          ></CustomerView>
         );
     }
   };
