@@ -32,6 +32,7 @@ Useful links:
 1. ReactJs Docs: https://reactjs.org/docs/getting-started.html
 2. React Native Docs: https://reactnative.dev/docs/getting-started
 3. React Native Flexbox: https://reactnative.dev/docs/flexbox
+4. React Navigation: https://reactnavigation.org/docs/getting-started
 4. Expo Doc: https://docs.expo.io/tutorial/planning/
 5. Online editor for running ReactJs code: https://codesandbox.io/
 6. Online editor for running React Native code: https://snack.expo.io/
