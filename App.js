@@ -5,8 +5,8 @@ import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
 import { CONSTANTS } from "./constants/constants";
-import CustomerScreen from "./screens/CustomerScreen";
-import WorkerScreen from "./screens/WorkerScreen";
+import CustomerScreen from "./views/CustomerScreen";
+import WorkerScreen from "./views/WorkerScreen";
 import { language } from "./language/language";
 
 const fetchFonts = () => {
@@ -25,8 +25,10 @@ export default function App() {
     setScreen(screen);
   };
 
-  const handleLanguageChange = (language) => {
-    setLanguage(language);
+  const handleLanguageChange = (selectedLanguage) => {
+    currentLanguage.id == "en"
+      ? setLanguage(language.hi)
+      : setLanguage(language.en);
   };
 
   if (!appLoaded) {
