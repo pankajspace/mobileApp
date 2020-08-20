@@ -10,7 +10,7 @@ import { language } from "../../language/language";
 const Footer = (props) => (
   <View style={[styles.container, props.style]}>
     <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
-      {"Contact Us"}
+      {props.currentLanguage.contactUs}
     </Text>
     <Icon
       name="arrow-back"
@@ -28,7 +28,7 @@ const Footer = (props) => (
       onPress={props.onScreenChange.bind(this, CONSTANTS.WORKER)}
     />
     <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
-      {"About Us"}
+      {props.currentLanguage.aboutUs}
     </Text>
   </View>
 );

@@ -3,10 +3,14 @@ export const language = {
     id: 'en',
     customerWelcome: "Welcome Customer",
     workerWelcome: "Welcome Worker",
+    contactUs: "Contact Us",
+    aboutUs: "About Us",
   },
-  hi: {
-    id:'hi',
-    customerWelcome: "ग्राहक का स्वागत हैं",
-    workerWelcome: "कार्यकर्ता का स्वागत हैं",
+  mr: {
+    id:'mr',
+    customerWelcome: "स्वागत ग्राहक",
+    workerWelcome: "स्वागत कर्मचारी",
+    contactUs: "आमच्याशी संपर्क साधा",
+    aboutUs: "आमच्याबद्दल",
   },
 };
