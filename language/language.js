@@ -10,7 +10,7 @@ export const language = {
     id:'mr',
     customerWelcome: "स्वागत ग्राहक",
     workerWelcome: "स्वागत कर्मचारी",
-    contactUs: "आमच्याशी संपर्क साधा",
+    contactUs: "संपर्क साधा",
     aboutUs: "आमच्याबद्दल",
   },
 };
