@@ -33,7 +33,8 @@ Useful links:
 2. React Native Docs: https://reactnative.dev/docs/getting-started
 3. React Native Flexbox: https://reactnative.dev/docs/flexbox
 4. React Navigation: https://reactnavigation.org/docs/getting-started
-4. Expo Doc: https://docs.expo.io/tutorial/planning/
-5. Online editor for running ReactJs code: https://codesandbox.io/
-6. Online editor for running React Native code: https://snack.expo.io/
-7. Git Workflow: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+5. React Native Elements: https://react-native-elements.github.io/react-native-elements/docs/
+6. Expo Doc: https://docs.expo.io/tutorial/planning/
+7. Online editor for running ReactJs code: https://codesandbox.io/
+8. Online editor for running React Native code: https://snack.expo.io/
+9. Git Workflow: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
