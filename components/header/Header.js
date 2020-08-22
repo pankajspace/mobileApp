@@ -6,37 +6,40 @@ import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
 
 const Header = (props) => {
+  const { navigation, style, children } = props;
   return (
-    <View style={[styles.container, props.style]}>
-      <Text style={[GlobalStyles.textOpenSansBold, styles.titleText]}>
-        {props.children}
+    <View style={[styles.container, style]}>
+      <Icon
+        name="menu"
+        color="white"
+        onPress={() => navigation.toggleDrawer()}
+      />
+      <Text style={[GlobalStyles.textOpenSansBold, styles.headerText]}>
+        {children}
       </Text>
-      {/*     
-    <Image
-      style={styles.image}
-      source={require("../../assets/img/profile.png")}
-    /> 
-    */}
-      <Icon name="face" color="white" />
+      {/* <Image style={styles.image} source={require("../../assets/img/profile.png")} />  */}
+      <Icon
+        name="face"
+        color="white"
+        onPress={() => navigation.navigate("MyProfile")}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  titleText: {
-    fontSize: 16,
-    color: "white",
-  },
   container: {
-    width: "100%",
-    height: 50,
     backgroundColor: Colors.primary,
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
-    padding: 20,
+    padding: 15,
   },
-  image: {},
+  headerText: {
+    fontSize: 16,
+    color: "white",
+  },
+  // image: {},
 });
 
 export default Header;

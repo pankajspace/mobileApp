@@ -4,17 +4,19 @@ import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
 
 import { CONSTANTS } from "./constants/constants";
-import { language } from "./language/language";
 import CustomerView from "./views/CustomerView";
 import WorkerView from "./views/WorkerView";
+import ProfileView from "./views/ProfileView";
+import ContactUsView from "./views/ContactUsView";
+import AboutUsView from "./views/AboutUsView";
 import { appReducer } from "./store/reducers/appReducer";
 
 const rootReducer = combineReducers({
@@ -30,6 +32,8 @@ const fetchFonts = () => {
   });
 };
 
+const Drawer = createDrawerNavigator();
+
 export default function App() {
   const [appLoaded, setDataLoaded] = useState(false);
 
@@ -43,23 +47,23 @@ export default function App() {
     );
   }
 
-  const renderScreen = () => {
-    switch (screen) {
-      case CONSTANTS.CUSTOMER:
-        return <CustomerView></CustomerView>;
-      case CONSTANTS.WORKER:
-        return <WorkerView></WorkerView>;
-      default:
-        return <CustomerView></CustomerView>;
-    }
-  };
-
   return (
     <Provider store={store}>
-      <View style={styles.container}>
+      {/* <View style={styles.container}>
         {renderScreen()}
         <StatusBar style="auto" />
-      </View>
+      </View> */}
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Customer">
+            <Drawer.Screen name="Customer" component={CustomerView} />
+            <Drawer.Screen name="Worker" component={WorkerView} />
+            <Drawer.Screen name="MyProfile" component={ProfileView} />
+            <Drawer.Screen name="ContactUs" component={ContactUsView} />
+            <Drawer.Screen name="AboutUs" component={AboutUsView} />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
     </Provider>
   );
 }

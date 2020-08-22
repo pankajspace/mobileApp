@@ -1,14 +1,10 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 
-const Worker = (props) => (
-  <View style={[styles.container, props.style]}></View>
-);
+const Worker = (props) => <ScrollView style={[styles.container, props.style]}></ScrollView>;
 
 const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-  },
+  container: {},
 });
 
 export default Worker;
