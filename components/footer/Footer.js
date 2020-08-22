@@ -5,8 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
-import { CONSTANTS } from "../../constants/constants";
-import { language } from "../../language/language";
 import { changeLanguage } from "../../store/actions/appActions";
 
 const Footer = (props) => {
@@ -15,45 +13,30 @@ const Footer = (props) => {
   console.log("currentLanguage", currentLanguage);
   return (
     <View style={[styles.container, props.style]}>
-      <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
-        {currentLanguage.contactUs}
-      </Text>
-      {/* <Icon
-        name="arrow-back"
-        color="white"
-        onPress={props.onScreenChange.bind(this, CONSTANTS.CUSTOMER)}
-      /> */}
+      <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>&copy;</Text>
       <Icon
         name="translate"
         color="white"
         onPress={() => dispatch(changeLanguage(currentLanguage.id))}
       />
-      {/* <Icon
-        name="arrow-forward"
-        color="white"
-        onPress={props.onScreenChange.bind(this, CONSTANTS.WORKER)}
-      /> */}
-      <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
-        {currentLanguage.aboutUs}
-      </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: 50,
-    backgroundColor: Colors.primary,
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-    padding: 20,
-    position: "fixed",
+    position: "absolute",
+    left: 0,
+    right: 0,
     bottom: 0,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: Colors.primary,
+    padding: 10,
   },
   footerText: {
-    fontSize: 12,
+    fontSize: 22,
     color: "white",
   },
 });

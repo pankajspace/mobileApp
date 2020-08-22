@@ -1,24 +1,26 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+import { StyleSheet } from "react-native";
+import { useSelector } from "react-redux";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import Customer from "../components/customer/Customer";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 
 const CustomerScreen = (props) => {
+  const { navigation } = props;
   const currentLanguage = useSelector((state) => state.app.currentLanguage);
   return (
-    <View style={styles.container}>
-      <Header>{currentLanguage.customerWelcome}</Header>
+    <SafeAreaView style={styles.container}>
+      <Header navigation={navigation}>{currentLanguage.customerWelcome}</Header>
       <Customer></Customer>
-      <Footer></Footer>
-    </View>
+      <Footer navigation={navigation}></Footer>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { flex: 1 },
 });
 
 export default CustomerScreen;
