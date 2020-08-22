@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
 export default function App() {
-  const [text, setText] = useState("Hello World!");
+  const [text, setText] = useState("Hello Pradnya!");
 
   return (
     <View style={styles.container}>

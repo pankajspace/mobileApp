@@ -1,0 +1,65 @@
+Login page for
+
+#Customer/Worker/Admin:
+1.Mobile no
+2.Otp
+======================
+Signup page for
+
+#Customer
+1. First Name
+2. Last Name
+3. Mobile no.
+4. E-mail adress
+5. Address
+6. City/State
+7. Pincode
+
+#Worker/Admin
+1. First Name
+2. Last Name
+3. Mobile no.
+4. E-mail adress
+5. Address
+6. City/State
+7. Pincode
+8. Role (admin/worker)
+
+=================================
+HomePage/LandingPage/Dashboard
+
+#Customer(below each will have separate screen for process)
+Services Menu:
+1. Fitting/Maitenance
+2. New Order
+3. Electrical Wiring
+	a. Inhouse
+	b. Industrial
+4. Offers
+5. Contact Us
+
+#Worker
+1. Customer Id
+2. Customer name/user
+3. Customer type
+4. Customer Details
+5. Customer status (in progress/completed/on Hold/Rejected)
+6. Customer MobileNo
+7. Customer Address
+8. Customer create date
+9. Customer close date
+10.Comments
+
+#Admin
+1. Customer Id
+2. Customer name/user
+3. Customer type
+4. Customer Details
+5. Customer status(new/assigned/in progress/completed/on Hold/Rejected)
+6. Customer MobileNo
+7. Customer Address
+8. Customer create date
+9. Customer close date
+10. Assignee Worker id/Name
+11. Comments
+===================================
