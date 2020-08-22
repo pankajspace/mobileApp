@@ -1,37 +1,44 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
+import { useSelector, useDispatch } from "react-redux";
 
 import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
 import { CONSTANTS } from "../../constants/constants";
 import { language } from "../../language/language";
+import { changeLanguage } from "../../store/actions/appActions";
 
-const Footer = (props) => (
-  <View style={[styles.container, props.style]}>
-    <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
-      {props.currentLanguage.contactUs}
-    </Text>
-    <Icon
-      name="arrow-back"
-      color="white"
-      onPress={props.onScreenChange.bind(this, CONSTANTS.CUSTOMER)}
-    />
-    <Icon
-      name="translate"
-      color="white"
-      onPress={props.onLanguageChange.bind(this, language.hi)}
-    />
-    <Icon
-      name="arrow-forward"
-      color="white"
-      onPress={props.onScreenChange.bind(this, CONSTANTS.WORKER)}
-    />
-    <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
-      {props.currentLanguage.aboutUs}
-    </Text>
-  </View>
-);
+const Footer = (props) => {
+  const currentLanguage = useSelector((state) => state.app.currentLanguage);
+  const dispatch = useDispatch();
+  console.log("currentLanguage", currentLanguage);
+  return (
+    <View style={[styles.container, props.style]}>
+      <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
+        {currentLanguage.contactUs}
+      </Text>
+      {/* <Icon
+        name="arrow-back"
+        color="white"
+        onPress={props.onScreenChange.bind(this, CONSTANTS.CUSTOMER)}
+      /> */}
+      <Icon
+        name="translate"
+        color="white"
+        onPress={() => dispatch(changeLanguage(currentLanguage.id))}
+      />
+      {/* <Icon
+        name="arrow-forward"
+        color="white"
+        onPress={props.onScreenChange.bind(this, CONSTANTS.WORKER)}
+      /> */}
+      <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>
+        {currentLanguage.aboutUs}
+      </Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

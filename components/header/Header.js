@@ -5,20 +5,22 @@ import { Icon } from "react-native-elements";
 import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
 
-const Header = (props) => (
-  <View style={[styles.container, props.style]}>
-    <Text style={[GlobalStyles.textOpenSansBold, styles.titleText]}>
-      {props.children}
-    </Text>
-    {/*     
+const Header = (props) => {
+  return (
+    <View style={[styles.container, props.style]}>
+      <Text style={[GlobalStyles.textOpenSansBold, styles.titleText]}>
+        {props.children}
+      </Text>
+      {/*     
     <Image
       style={styles.image}
       source={require("../../assets/img/profile.png")}
     /> 
     */}
-    <Icon name="face" color="white" />
-  </View>
-);
+      <Icon name="face" color="white" />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   titleText: {
