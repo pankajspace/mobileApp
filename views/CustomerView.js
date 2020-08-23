@@ -7,7 +7,7 @@ import Customer from "../components/customer/Customer";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 
-const CustomerScreen = (props) => {
+const CustomerView = (props) => {
   const { navigation } = props;
   const currentLanguage = useSelector((state) => state.app.currentLanguage);
   return (
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
   container: { flex: 1 },
 });
 
-export default CustomerScreen;
+export default CustomerView;
