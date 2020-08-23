@@ -27,12 +27,12 @@ const NavigationView = (props) => {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Customer">
-        <Drawer.Screen name={adminLink} component={AdminView} />
-        <Drawer.Screen name={customerLink} component={CustomerView} />
-        <Drawer.Screen name={workerLink} component={WorkerView} />
-        <Drawer.Screen name={myProfileLink} component={ProfileView} />
-        <Drawer.Screen name={contactUsLink} component={ContactUsView} />
-        <Drawer.Screen name={aboutUsLink} component={AboutUsView} />
+        <Drawer.Screen name={"Admin"} component={AdminView} />
+        <Drawer.Screen name={"Customer"} component={CustomerView} />
+        <Drawer.Screen name={"Worker"} component={WorkerView} />
+        <Drawer.Screen name={"My Profile"} component={ProfileView} />
+        <Drawer.Screen name={"Contact Us"} component={ContactUsView} />
+        <Drawer.Screen name={"About Us"} component={AboutUsView} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
