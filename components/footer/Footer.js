@@ -10,7 +10,6 @@ import { changeLanguage } from "../../store/actions/appActions";
 const Footer = (props) => {
   const currentLanguage = useSelector((state) => state.app.currentLanguage);
   const dispatch = useDispatch();
-  console.log("currentLanguage", currentLanguage);
   return (
     <View style={[styles.container, props.style]}>
       <Text style={[GlobalStyles.textOpenSans, styles.footerText]}>&copy;</Text>

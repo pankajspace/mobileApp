@@ -3,16 +3,10 @@ import { StyleSheet } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
 
-import CustomerView from "./views/CustomerView";
-import WorkerView from "./views/WorkerView";
-import ProfileView from "./views/ProfileView";
-import ContactUsView from "./views/ContactUsView";
-import AboutUsView from "./views/AboutUsView";
+import NavigationView from "./views/NavigationView";
 import { appReducer } from "./store/reducers/appReducer";
 
 const rootReducer = combineReducers({
@@ -27,8 +21,6 @@ const fetchFonts = () => {
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   });
 };
-
-const Drawer = createDrawerNavigator();
 
 export default function App() {
   const [appLoaded, setDataLoaded] = useState(false);
@@ -46,15 +38,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Customer">
-            <Drawer.Screen name="Customer" component={CustomerView} />
-            <Drawer.Screen name="Worker" component={WorkerView} />
-            <Drawer.Screen name="MyProfile" component={ProfileView} />
-            <Drawer.Screen name="ContactUs" component={ContactUsView} />
-            <Drawer.Screen name="AboutUs" component={AboutUsView} />
-          </Drawer.Navigator>
-        </NavigationContainer>
+        <NavigationView></NavigationView>
       </SafeAreaProvider>
     </Provider>
   );
