@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+import { StyleSheet } from "react-native";
+import { useSelector } from "react-redux";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 import Header from "../components/header/Header";
