@@ -1,6 +1,7 @@
 export const language = {
   en: {
     id: "en",
+    admin: "Welcome Admin",
     customerWelcome: "Welcome Customer",
     workerWelcome: "Welcome Worker",
     contactUs: "Contact Us",
@@ -9,6 +10,7 @@ export const language = {
   },
   mr: {
     id: "mr",
+    admin: "स्वागत प्रशासक",
     customerWelcome: "स्वागत ग्राहक",
     workerWelcome: "स्वागत कर्मचारी",
     contactUs: "संपर्क साधा",

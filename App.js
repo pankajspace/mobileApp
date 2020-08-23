@@ -9,6 +9,7 @@ import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
 
 import CustomerView from "./views/CustomerView";
+import AdminView from "./views/AdminView";
 import WorkerView from "./views/WorkerView";
 import ProfileView from "./views/ProfileView";
 import ContactUsView from "./views/ContactUsView";
@@ -48,6 +49,7 @@ export default function App() {
       <SafeAreaProvider>
         <NavigationContainer>
           <Drawer.Navigator initialRouteName="Customer">
+            <Drawer.Screen name="Admin" component={AdminView} />
             <Drawer.Screen name="Customer" component={CustomerView} />
             <Drawer.Screen name="Worker" component={WorkerView} />
             <Drawer.Screen name="MyProfile" component={ProfileView} />
