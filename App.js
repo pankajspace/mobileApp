@@ -1,17 +1,13 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { StyleSheet } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
-
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
 import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
 
-import { CONSTANTS } from "./constants/constants";
 import CustomerView from "./views/CustomerView";
 import WorkerView from "./views/WorkerView";
 import ProfileView from "./views/ProfileView";
@@ -49,10 +45,6 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      {/* <View style={styles.container}>
-        {renderScreen()}
-        <StatusBar style="auto" />
-      </View> */}
       <SafeAreaProvider>
         <NavigationContainer>
           <Drawer.Navigator initialRouteName="Customer">
