@@ -21,7 +21,7 @@ const Header = (props) => {
       <Icon
         name="face"
         color="white"
-        onPress={() => navigation.navigate("MyProfile")}
+        onPress={() => navigation.navigate("My Profile")}
       />
     </View>
   );
