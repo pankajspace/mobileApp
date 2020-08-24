@@ -5,12 +5,15 @@ import { AppLoading } from "expo";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
+import Firebase, { FirebaseProvider } from './firebase'
 
 import NavigationView from "./views/NavigationView";
 import { appReducer } from "./store/reducers/appReducer";
+import { authReducer } from "./store/reducers/authReducer";
 
 const rootReducer = combineReducers({
   app: appReducer,
+  auth:authReducer
 });
 
 const store = createStore(rootReducer);
@@ -37,10 +40,12 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <NavigationView></NavigationView>
-      </SafeAreaProvider>
-    </Provider>
+      <FirebaseProvider value={Firebase}>
+        <SafeAreaProvider>
+          <NavigationView></NavigationView>
+        </SafeAreaProvider>
+      </FirebaseProvider>
+    </Provider >
   );
 }
 
