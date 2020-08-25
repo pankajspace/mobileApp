@@ -3,11 +3,12 @@ import { StyleSheet, Text } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import {
-  createDrawerNavigator, DrawerContentScrollView,
+  createDrawerNavigator,
+  DrawerContentScrollView,
   DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
-import { withFirebaseHOC } from '../firebase'
+import { withFirebaseHOC } from "../firebase";
 import CustomerView from "../views/CustomerView";
 import AdminView from "../views/AdminView";
 import WorkerView from "../views/WorkerView";
@@ -27,11 +28,13 @@ const NavigationView = (props) => {
   const dispatch = useDispatch();
 
   const currentLanguage = useSelector((state) => state.app.currentLanguage);
-  let isUserLoggedIn = false; 
-  
+  let isUserLoggedIn = false;
+
   const isAppLoading = useSelector((state) => state.app.isAppLoading);
 
-  useEffect(() => { checkUserAuthentication() }, [isUserLoggedIn,isAppLoading])
+  useEffect(() => {
+    checkUserAuthentication();
+  }, [isUserLoggedIn, isAppLoading]);
 
   isUserLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
@@ -39,26 +42,26 @@ const NavigationView = (props) => {
     return (
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
-        <DrawerItem label="SignOut" onPress={() => alert('SignOut')} />
+        <DrawerItem label="SignOut" onPress={() => alert("SignOut")} />
       </DrawerContentScrollView>
     );
-  }
+  };
 
   const checkUserAuthentication = async () => {
-    await props.firebase.checkUserAuth(user => {
+    await props.firebase.checkUserAuth((user) => {
       if (user) {
-        console.log('success')
+        console.log("success");
         // if the user has previously logged in
-        dispatch(setAppLoading(false))
-        dispatch(checkUserAuth(true))
+        dispatch(setAppLoading(false));
+        dispatch(checkUserAuth(true));
       } else {
-        console.log('failed', user)
-        // if the user has previously signed out from the app        
-        dispatch(checkUserAuth(false))
-        dispatch(setAppLoading(false))
+        console.log("failed", user);
+        // if the user has previously signed out from the app
+        dispatch(checkUserAuth(false));
+        dispatch(setAppLoading(false));
       }
-    })
-  }
+    });
+  };
 
   let {
     adminLink,
@@ -68,33 +71,41 @@ const NavigationView = (props) => {
     aboutUsLink,
     myProfileLink,
   } = currentLanguage;
- 
-  if (isAppLoading) { return (<><Text>Loading...</Text></>) }
+
+  if (isAppLoading) {
+    return (
+      <>
+        <Text>Loading...</Text>
+      </>
+    );
+  }
 
   return (
     <NavigationContainer>
       {isUserLoggedIn ? (
         <>
-          <Drawer.Navigator initialRouteName="Customer" drawerContent={props => <CustomDrawerContent {...props} />} >
-            <Drawer.Screen name={adminLink} component={AdminView} />
-            <Drawer.Screen name={customerLink} component={CustomerView} />
-            <Drawer.Screen name={workerLink} component={WorkerView} />
-            <Drawer.Screen name={myProfileLink} component={ProfileView} />
-            <Drawer.Screen name={contactUsLink} component={ContactUsView} />
-            <Drawer.Screen name={aboutUsLink} component={AboutUsView} />
+          <Drawer.Navigator
+            initialRouteName="Customer"
+            drawerContent={(props) => <CustomDrawerContent {...props} />}
+          >
+            <Drawer.Screen name={"Admin"} component={AdminView} />
+            <Drawer.Screen name={"Customer"} component={CustomerView} />
+            <Drawer.Screen name={"Worker"} component={WorkerView} />
+            <Drawer.Screen name={"My Profile"} component={ProfileView} />
+            <Drawer.Screen name={"Contact Us"} component={ContactUsView} />
+            <Drawer.Screen name={"About Us"} component={AboutUsView} />
           </Drawer.Navigator>
-        </>)
-        : (
-          <>
-            <SignInDrawer.Navigator initialRouteName="SignIn">
-              <Drawer.Screen name="SignIn" component={LoginView} />
-              <Drawer.Screen name="SignUp" component={SignupView} />
-            </SignInDrawer.Navigator>
-          </>)
-      }
+        </>
+      ) : (
+        <>
+          <SignInDrawer.Navigator initialRouteName="SignIn">
+            <Drawer.Screen name="SignIn" component={LoginView} />
+            <Drawer.Screen name="SignUp" component={SignupView} />
+          </SignInDrawer.Navigator>
+        </>
+      )}
     </NavigationContainer>
   );
-
 };
 
 const styles = StyleSheet.create({
