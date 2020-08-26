@@ -1,5 +1,5 @@
-import React, { useEffect, useCallback } from "react";
-import { StyleSheet, Text } from "react-native";
+import React, { useEffect } from "react";
+import { StyleSheet, ActivityIndicator, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import {
@@ -17,6 +17,7 @@ import ContactUsView from "../views/ContactUsView";
 import AboutUsView from "../views/AboutUsView";
 import LoginView from "../views/LoginView";
 import SignupView from "../views/SignupView";
+import ProductsView from "../views/ProductsView";
 
 import { checkUserAuth } from "../store/actions/authAction";
 import { setAppLoading } from "../store/actions/appActions";
@@ -50,12 +51,12 @@ const NavigationView = (props) => {
   const checkUserAuthentication = async () => {
     await props.firebase.checkUserAuth((user) => {
       if (user) {
-        console.log("success");
+        console.log("checkUserAuthentication success");
         // if the user has previously logged in
         dispatch(setAppLoading(false));
         dispatch(checkUserAuth(true));
       } else {
-        console.log("failed", user);
+        console.log("checkUserAuthentication failed user", user);
         // if the user has previously signed out from the app
         dispatch(checkUserAuth(false));
         dispatch(setAppLoading(false));
@@ -74,9 +75,9 @@ const NavigationView = (props) => {
 
   if (isAppLoading) {
     return (
-      <>
-        <Text>Loading...</Text>
-      </>
+      <View style={styles.container}>
+        <ActivityIndicator size="large" />
+      </View>
     );
   }
 
@@ -85,11 +86,12 @@ const NavigationView = (props) => {
       {isUserLoggedIn ? (
         <>
           <Drawer.Navigator
-            initialRouteName="Customer"
+            initialRouteName="Products"
             drawerContent={(props) => <CustomDrawerContent {...props} />}
           >
+            <Drawer.Screen name={"Products"} component={ProductsView} />
             <Drawer.Screen name={"Admin"} component={AdminView} />
-            <Drawer.Screen name={"Customer"} component={CustomerView} />
+            {/* <Drawer.Screen name={"Customer"} component={CustomerView} /> */}
             <Drawer.Screen name={"Worker"} component={WorkerView} />
             <Drawer.Screen name={"My Profile"} component={ProfileView} />
             <Drawer.Screen name={"Contact Us"} component={ContactUsView} />
@@ -109,7 +111,7 @@ const NavigationView = (props) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
 
 export default withFirebaseHOC(NavigationView);
