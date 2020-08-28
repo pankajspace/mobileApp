@@ -6,7 +6,7 @@ import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
 
 const Header = (props) => {
-  const { navigation, style, children } = props;
+  const { navigation, style, children } = props;  
   return (
     <View style={[styles.container, style]}>
       <Icon

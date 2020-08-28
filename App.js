@@ -13,7 +13,7 @@ import { authReducer } from "./store/reducers/authReducer";
 
 const rootReducer = combineReducers({
   app: appReducer,
-  auth:authReducer
+  auth: authReducer
 });
 
 const store = createStore(rootReducer);

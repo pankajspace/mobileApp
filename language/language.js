@@ -13,6 +13,7 @@ export const language = {
     contactUsLink: "Contact Us",
     aboutUsLink: "About Us",
     myProfileLink: "My Profile",
+    resetPasswordLink: "Reset Password"
   },
   mr: {
     id: "mr",
@@ -28,5 +29,6 @@ export const language = {
     contactUsLink: "संपर्क साधा",
     aboutUsLink: "आमच्याबद्दल",
     myProfileLink: "माझे प्रोफाइल",
+    resetPasswordLink: "पासवर्ड बदला"
   },
 };

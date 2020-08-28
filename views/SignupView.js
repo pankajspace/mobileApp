@@ -1,5 +1,5 @@
-import React, { Fragment,useState } from 'react'
-import { StyleSheet, SafeAreaView, View, TouchableOpacity } from 'react-native'
+import React, { Fragment, useState } from 'react'
+import { StyleSheet, SafeAreaView, View, TouchableOpacity, Alert } from 'react-native'
 import { Button, CheckBox } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 import { Formik } from 'formik'
@@ -61,8 +61,15 @@ const Signup = (props) => {
                 const { uid } = response.user
                 const userData = { email, name, uid }
                 await props.firebase.createNewUser(userData)
-                props.firebase.doSendEmailVerification()
-                dispatch(checkUserAuth(true))
+                props.firebase.doSendEmailVerification().then(function () {
+                    console.log("Email sent.", props);
+                }, function (error) { 
+                    console.log("Email not sent.");
+                });
+
+                alert("You will receive a verification email, please verify and login again to start using application!");
+                props.firebase.signOut()
+                props.navigation.navigate("SignIn");
             }
         } catch (error) {
             // console.error(error)
