@@ -12,7 +12,7 @@ const AboutUsView = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header navigation={navigation}>{currentLanguage.aboutUs}</Header>
-      <Footer navigation={navigation}></Footer>
+      {/* <Footer navigation={navigation}></Footer> */}
     </SafeAreaView>
   );
 };

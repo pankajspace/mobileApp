@@ -12,7 +12,7 @@ const ProfileView = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header navigation={navigation}>{currentLanguage.myProfile}</Header>
-      <Footer navigation={navigation}></Footer>
+      {/* <Footer navigation={navigation}></Footer> */}
     </SafeAreaView>
   );
 };

@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: Colors.primary,
     padding: 10,
+    marginTop: 100,
   },
   footerText: {
     fontSize: 22,

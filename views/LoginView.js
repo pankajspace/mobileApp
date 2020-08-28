@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { StyleSheet, SafeAreaView, View, TouchableOpacity } from 'react-native'
 import { Button } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
@@ -10,7 +10,8 @@ import FormButton from '../components/common/FormButton'
 import ErrorMessage from '../components/common/ErrorMessage'
 import AppLogo from '../components/common/AppLogo'
 import { withFirebaseHOC } from '../firebase'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { checkUserAuth, setEmailVerification } from "../store/actions/authAction";
 
 const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -28,8 +29,14 @@ const Login = (props) => {
     const [passwordVisibility, setPasswordVisibility] = useState(true);
     const [rightIcon, setRightIcon] = useState('ios-eye');
     const dispatch = useDispatch();
+    const currentLanguage = useSelector((state) => state.app.currentLanguage);
 
     const goToSignup = () => props.navigation.navigate('SignUp')
+
+    let {
+        resetPasswordLink
+      } = currentLanguage;
+    const goToResetPassword = () => props.navigation.navigate(resetPasswordLink)
 
     const handlePasswordVisibility = () => {
 
@@ -40,14 +47,24 @@ const Login = (props) => {
 
     const handleOnLogin = async (values, actions) => {
         const { email, password } = values
-        
         try {
             const response = await props.firebase.loginWithEmail(email, password)
 
             if (response.user) {
-                props.firebase.User = response.user;
-                dispatch(checkUserAuth(true))
+                var user = props.firebase.currentUser();
+                console.log('user.emailVerified :>> ', user.emailVerified);
+                if (!user.emailVerified) {
+                    alert("Verify your e-mail to finish signing up for Application, please check your email for verification link.");
+                    props.firebase.signOut();
+                    return;
+                }
+                else {                    
+                    props.firebase.User = response.user;
+                    dispatch(checkUserAuth(true))
+                    dispatch(setEmailVerification(true))
+                }
             }
+
         } catch (error) {
             actions.setFieldError('general', error.message)
         } finally {
@@ -122,6 +139,14 @@ const Login = (props) => {
             <Button
                 title="Don't have an account? Sign Up"
                 onPress={goToSignup}
+                titleStyle={{
+                    color: '#F57C00'
+                }}
+                type='clear'
+            />
+             <Button
+                title="Reset Password"
+                onPress={goToResetPassword}
                 titleStyle={{
                     color: '#F57C00'
                 }}

@@ -12,7 +12,7 @@ const AdminView = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header navigation={navigation}>{currentLanguage.admin}</Header>
-      <Footer navigation={navigation}></Footer>
+      {/* <Footer navigation={navigation}></Footer> */}
     </SafeAreaView>
   );
 };
