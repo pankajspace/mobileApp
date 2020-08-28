@@ -16,7 +16,7 @@ import { productsReducer } from "./store/reducers/productsReducer";
 const rootReducer = combineReducers({
   app: appReducer,
   auth: authReducer,
-  productsStore: productsReducer,
+  productsStore: productsReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));

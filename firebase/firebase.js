@@ -11,6 +11,9 @@ const Firebase = {
   loginWithEmail: (email, password) => {
     return firebase.auth().signInWithEmailAndPassword(email, password)
   },
+  sendPasswordResetEmail:(email) => {
+    return firebase.auth().sendPasswordResetEmail(email);
+  },
   signupWithEmail: (email, password) => {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
   },
@@ -23,8 +26,8 @@ const Firebase = {
   },
 
   doSendEmailVerification: () => {
-      
-    return firebase.auth().sendEmailVerification()
+    console.log('inside firebase send email verification')  
+    return firebase.auth().currentUser.sendEmailVerification()
   },
 
   currentUser: () => {
