@@ -1,28 +1,47 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Icon } from "react-native-elements";
+import { useSelector, useDispatch } from "react-redux";
 
 import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
+import { changeLanguage } from "../../store/actions/appActions";
 
 const Header = (props) => {
-  const { navigation, style, children } = props;  
+  const { navigation, style, children } = props;
+  const currentLanguage = useSelector((state) => state.app.currentLanguage);
+  const dispatch = useDispatch();
+
+  const renderMenu = () => {
+    if (!props.hideMenu) {
+      return (
+        <Icon
+          name="menu"
+          color="white"
+          onPress={() => navigation.toggleDrawer()}
+        />
+      );
+    } else {
+      return <Text> </Text>;
+    }
+  };
+
   return (
     <View style={[styles.container, style]}>
-      <Icon
-        name="menu"
-        color="white"
-        onPress={() => navigation.toggleDrawer()}
-      />
+      {renderMenu()}
       <Text style={[GlobalStyles.textOpenSansBold, styles.headerText]}>
         {children}
       </Text>
-      {/* <Image style={styles.image} source={require("../../assets/img/profile.png")} />  */}
       <Icon
+        name="translate"
+        color="white"
+        onPress={() => dispatch(changeLanguage(currentLanguage.id))}
+      />
+      {/* <Icon
         name="face"
         color="white"
         onPress={() => navigation.navigate("My Profile")}
-      />
+      /> */}
     </View>
   );
 };

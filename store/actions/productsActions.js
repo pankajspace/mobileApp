@@ -1,9 +1,9 @@
-import data from "../../data/products.json";
+import { products } from "../../data/productsData.js";
 
 export const GET_PRODUCTS = "GET_PRODUCTS";
 
 const getProductsJSON = () => {
-  return data.products;
+  return products;
 };
 
 export const getProducts = () => {

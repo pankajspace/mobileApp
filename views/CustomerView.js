@@ -16,7 +16,7 @@ const CustomerView = (props) => {
     <SafeAreaView style={styles.container}>
       <Header navigation={navigation}>{currentLanguage.customerWelcome}</Header>
       <Customer firebase={firebase}></Customer>
-      <Footer navigation={navigation}></Footer>
+      {/* <Footer navigation={navigation}></Footer> */}
     </SafeAreaView>
   );
 };
