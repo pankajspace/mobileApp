@@ -14,7 +14,7 @@ const WorkerView = (props) => {
     <SafeAreaView style={styles.container}>
       <Header navigation={navigation}>{currentLanguage.workerWelcome}</Header>
       <Worker></Worker>
-      <Footer navigation={navigation}></Footer>
+      {/* <Footer navigation={navigation}></Footer> */}
     </SafeAreaView>
   );
 };

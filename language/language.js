@@ -15,6 +15,8 @@ export const language = {
     myProfileLink: "My Profile",
     resetPasswordLink: "Reset Password",
     products: "Products",
+    productDetails: "Product Details",
+    settings: "Settings",
   },
   mr: {
     id: "mr",
@@ -31,6 +33,8 @@ export const language = {
     aboutUsLink: "आमच्याबद्दल",
     myProfileLink: "माझे प्रोफाइल",
     resetPasswordLink: "पासवर्ड बदला",
-    products: "उत्पादने"
+    products: "उत्पादने",
+    productDetails: "उत्पादन तपशील",
+    settings: "सेटिंग्ज",
   },
 };
