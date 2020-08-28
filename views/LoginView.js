@@ -47,7 +47,6 @@ const Login = (props) => {
 
     const handleOnLogin = async (values, actions) => {
         const { email, password } = values
-
         try {
             const response = await props.firebase.loginWithEmail(email, password)
 

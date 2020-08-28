@@ -34,6 +34,8 @@ const Drawer = createDrawerNavigator();
 const SignInDrawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
+const Drawer = createDrawerNavigator();
+const SignInDrawer = createDrawerNavigator();
 const NavigationView = (props) => {
   const { navigation, firebase } = props;
   const dispatch = useDispatch();
@@ -148,6 +150,7 @@ const NavigationView = (props) => {
       )}
     </NavigationContainer>
   );
+
 };
 
 const styles = StyleSheet.create({
