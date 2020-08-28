@@ -1,13 +1,14 @@
-import React, { useEffect, useCallback } from "react";
-import { StyleSheet, Text } from "react-native";
+import React, { useEffect } from "react";
+import { StyleSheet, ActivityIndicator, View } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import {
-  createDrawerNavigator, DrawerContentScrollView,
+  createDrawerNavigator,
+  DrawerContentScrollView,
   DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
-import { withFirebaseHOC } from '../firebase'
+import { withFirebaseHOC } from "../firebase";
 import CustomerView from "../views/CustomerView";
 import AdminView from "../views/AdminView";
 import WorkerView from "../views/WorkerView";
@@ -18,6 +19,7 @@ import LoginView from "../views/LoginView";
 import SignupView from "../views/SignupView";
 import ResetPassword from "../views/resetPassword";
 import LoadingScreen from "./loading";
+import ProductsView from "../views/ProductsView";
 
 import { checkUserAuth, setEmailVerification } from "../store/actions/authAction";
 import { setAppLoading } from "../store/actions/appActions";
@@ -31,6 +33,7 @@ const NavigationView = (props) => {
   const currentLanguage = useSelector((state) => state.app.currentLanguage);
   let isUserLoggedIn = false;
 
+
   let isAppLoading = useSelector((state) => state.app.isAppLoading);
   const isEmailVerified = useSelector((state) => state.auth.isEmailVerified);
 
@@ -43,6 +46,7 @@ const NavigationView = (props) => {
     }
   }, [isUserLoggedIn, isAppLoading])
 
+
   isUserLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const CustomDrawerContent = (props) => {
@@ -52,11 +56,12 @@ const NavigationView = (props) => {
         <DrawerItem label="SignOut" onPress={() => props.firebase.signOut()} />
       </DrawerContentScrollView>
     );
-  }
+  };
 
   const checkUserAuthentication = async () => {
-    await props.firebase.checkUserAuth(user => {
+    await props.firebase.checkUserAuth((user) => {
       if (user) {
+
         var thisUser = props.firebase.currentUser();
         console.log('user.emailVerified :>> ', thisUser.emailVerified);
         if (!thisUser.emailVerified) {
@@ -66,17 +71,18 @@ const NavigationView = (props) => {
           return;
         }
         console.log('success')
+
         // if the user has previously logged in
-        dispatch(setAppLoading(false))
-        dispatch(checkUserAuth(true))
+        dispatch(setAppLoading(false));
+        dispatch(checkUserAuth(true));
       } else {
-        console.log('failed', user)
-        // if the user has previously signed out from the app        
-        dispatch(checkUserAuth(false))
-        dispatch(setAppLoading(false))
+        console.log("checkUserAuthentication failed user", user);
+        // if the user has previously signed out from the app
+        dispatch(checkUserAuth(false));
+        dispatch(setAppLoading(false));
       }
-    })
-  }
+    });
+  };
 
   let {
     adminLink,
@@ -95,32 +101,36 @@ const NavigationView = (props) => {
     <NavigationContainer>
       {isUserLoggedIn ? (
         <>
-          <Drawer.Navigator initialRouteName="Customer" drawerContent={props => <CustomDrawerContent {...props} firebase={firebase} />} >
-            <Drawer.Screen name={adminLink} component={AdminView} />
-            <Drawer.Screen name={customerLink} component={CustomerView} />
-            <Drawer.Screen name={workerLink} component={WorkerView} />
-            <Drawer.Screen name={myProfileLink} component={ProfileView} />
-            <Drawer.Screen name={contactUsLink} component={ContactUsView} />
-            <Drawer.Screen name={aboutUsLink} component={AboutUsView} />
-            <Drawer.Screen name={resetPasswordLink} component={ResetPassword} />
+          <Drawer.Navigator
+            initialRouteName="Products"
+            drawerContent={(props) => <CustomDrawerContent {...props} firebase={firebase}/>}
+          >
+            <Drawer.Screen name={"Products"} component={ProductsView} />
+            <Drawer.Screen name={"Admin"} component={AdminView} />
+            {/* <Drawer.Screen name={"Customer"} component={CustomerView} /> */}
+            <Drawer.Screen name={"Worker"} component={WorkerView} />
+            <Drawer.Screen name={"My Profile"} component={ProfileView} />
+            <Drawer.Screen name={"Contact Us"} component={ContactUsView} />
+            <Drawer.Screen name={"About Us"} component={AboutUsView} />
+               <Drawer.Screen name={resetPasswordLink} component={ResetPassword} />
           </Drawer.Navigator>
-        </>)
-        : (
-          <>
-            <SignInDrawer.Navigator initialRouteName="SignIn">
-              <Drawer.Screen name="SignIn" component={LoginView} />
-              <Drawer.Screen name="SignUp" component={SignupView} />
-              <Drawer.Screen name={resetPasswordLink} component={ResetPassword} />
-            </SignInDrawer.Navigator>
-          </>)
-      }
+        </>
+      ) : (
+        <>
+          <SignInDrawer.Navigator initialRouteName="SignIn">
+            <Drawer.Screen name="SignIn" component={LoginView} />
+            <Drawer.Screen name="SignUp" component={SignupView} />
+            <Drawer.Screen name={resetPasswordLink} component={ResetPassword} />
+          </SignInDrawer.Navigator>
+        </>
+      )}
+
     </NavigationContainer>
   );
-
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
 
 export default withFirebaseHOC(NavigationView);
