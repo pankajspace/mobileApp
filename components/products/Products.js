@@ -69,7 +69,7 @@ const Products = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 100,
+    marginBottom: 10,
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-evenly",
