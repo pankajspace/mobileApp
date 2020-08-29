@@ -4,15 +4,14 @@ import {
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
-  Image,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { Card, Button, Icon, ActivityIndicator } from "react-native-elements";
+import { Card, Button } from "react-native-elements";
 
 import { getProducts } from "../../store/actions/productsActions";
+import { addProduct } from "../../store/actions/productsActions";
 
 const Products = (props) => {
-  const { navigation, style, children } = props;
   const products = useSelector((state) => state.productsStore.products);
   const dispatchAction = useDispatch();
 
@@ -32,28 +31,16 @@ const Products = (props) => {
             image={product.image}
             containerStyle={styles.cardContainer}
           >
-            <Text
-              style={{
-                marginBottom: 10,
-                fontSize: 18,
-                fontWeight: "500",
-                color: "blue",
-                textAlign: "center",
-              }}
-            >
+            <Text style={styles.productPrice}>
               {"₹"}
               {product.price}
             </Text>
-            <Text
-              style={{
-                marginBottom: 5,
-                maxHeight: 44,
-                overflow: "hidden",
-                minHeight: 45,
-              }}
-            >
-              {product.desc}
-            </Text>
+            <Text style={styles.productDesc}>{product.desc}</Text>
+            <Button
+              buttonStyle={styles.cartBtn}
+              title="Add To Cart"
+              onPress={() => dispatchAction(addProduct(product))}
+            />
           </Card>
         </TouchableWithoutFeedback>
       );
@@ -69,7 +56,7 @@ const Products = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 100,
+    marginBottom: 10,
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-evenly",
@@ -78,6 +65,22 @@ const styles = StyleSheet.create({
     width: 150,
     borderColor: "#03DAC6",
     borderWidth: 2,
+    borderRadius: 10,
+  },
+  productPrice: {
+    marginBottom: 10,
+    fontSize: 18,
+    fontWeight: "500",
+    color: "blue",
+    textAlign: "center",
+  },
+  productDesc: {
+    marginBottom: 5,
+    maxHeight: 44,
+    overflow: "hidden",
+    minHeight: 45,
+  },
+  cartBtn: {
     borderRadius: 10,
   },
 });
