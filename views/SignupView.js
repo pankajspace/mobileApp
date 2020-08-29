@@ -39,12 +39,12 @@ const Signup = (props) => {
     const goToLogin = () => props.navigation.navigate('Login')
 
     const handlePasswordVisibility = () => {
-        setPasswordVisibility(prevState => !prevState.passwordVisibility)
-        setpasswordIcon(prevState => prevState.passwordIcon === 'ios-eye' ? 'ios-eye-off' : 'ios-eye')
+        setPasswordVisibility(!passwordVisibility)
+        setpasswordIcon(passwordIcon === 'ios-eye' ? 'ios-eye-off' : 'ios-eye')
     }
     const handleConfirmPasswordVisibility = () => {
-        setconfirmPasswordVisibility(prevState => !prevState.confirmPasswordVisibility)
-        setconfirmPasswordIcon(prevState => prevState.confirmPasswordIcon === 'ios-eye' ? 'ios-eye-off' : 'ios-eye')
+        setconfirmPasswordVisibility(!confirmPasswordVisibility)
+        setconfirmPasswordIcon(confirmPasswordIcon === 'ios-eye' ? 'ios-eye-off' : 'ios-eye')
     }
 
 
