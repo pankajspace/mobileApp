@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import Firebase, { FirebaseProvider } from "./firebase";
 import reduxThunk from "redux-thunk";
 
-import NavigationView from "./views/NavigationView";
+import NavigationView from "./views/navigationView/NavigationView";
 import { appReducer } from "./store/reducers/appReducer";
 import { authReducer } from "./store/reducers/authReducer";
 import { productsReducer } from "./store/reducers/productsReducer";
@@ -16,7 +16,7 @@ import { productsReducer } from "./store/reducers/productsReducer";
 const rootReducer = combineReducers({
   app: appReducer,
   auth: authReducer,
-  productsStore: productsReducer
+  productsStore: productsReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));
