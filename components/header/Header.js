@@ -1,16 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-import { Icon } from "react-native-elements";
-import { useSelector, useDispatch } from "react-redux";
+import { Icon, Badge } from "react-native-elements";
+import { useSelector } from "react-redux";
 
 import GlobalStyles from "../../styles/globalStyles";
 import Colors from "../../styles/colors";
-import { changeLanguage } from "../../store/actions/appActions";
 
 const Header = (props) => {
   const { navigation, style, children } = props;
-  const currentLanguage = useSelector((state) => state.app.currentLanguage);
-  const dispatch = useDispatch();
+  const cartProducts = useSelector((state) => state.productsStore.cartProducts);
 
   const renderMenu = () => {
     if (!props.hideMenu) {
@@ -32,26 +30,22 @@ const Header = (props) => {
       <Text style={[GlobalStyles.textOpenSansBold, styles.headerText]}>
         {children}
       </Text>
-      <Icon
-        name="translate"
-        color="white"
-        onPress={() => dispatch(changeLanguage(currentLanguage.id))}
+      <Icon type="fontawesome" name="shopping-cart" color="white" solid="false" />
+      <Badge
+        status="success"
+        value={cartProducts.length}
+        containerStyle={{ position: "absolute", top: 10, right: 10 }}
       />
-      {/* <Icon
-        name="face"
-        color="white"
-        onPress={() => navigation.navigate("My Profile")}
-      /> */}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.primary,
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    flexDirection: "row",
+    backgroundColor: Colors.primary,
     padding: 15,
   },
   headerText: {
