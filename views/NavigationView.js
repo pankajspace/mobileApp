@@ -34,8 +34,6 @@ const Drawer = createDrawerNavigator();
 const SignInDrawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
-const Drawer = createDrawerNavigator();
-const SignInDrawer = createDrawerNavigator();
 const NavigationView = (props) => {
   const { navigation, firebase } = props;
   const dispatch = useDispatch();
@@ -60,7 +58,7 @@ const NavigationView = (props) => {
     return (
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
-        <DrawerItem label="SignOut" onPress={() => props.firebase.signOut()} />
+        <DrawerItem label="SignOut" onPress={() => {props.firebase.signOut(); dispatch(checkUserAuth(false));}} />
       </DrawerContentScrollView>
     );
   };

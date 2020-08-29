@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { StyleSheet, SafeAreaView, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, SafeAreaView, View, TouchableOpacity, Text } from 'react-native'
 import { Button } from 'react-native-elements'
 import { Ionicons } from '@expo/vector-icons'
 import { Formik } from 'formik'
@@ -35,14 +35,14 @@ const Login = (props) => {
 
     let {
         resetPasswordLink
-      } = currentLanguage;
+    } = currentLanguage;
     const goToResetPassword = () => props.navigation.navigate(resetPasswordLink)
 
     const handlePasswordVisibility = () => {
 
-        setPasswordVisibility(prevState => !prevState.passwordVisibility)
+        setPasswordVisibility(!passwordVisibility)
 
-        setRightIcon(prevState => prevState.rightIcon === 'ios-eye' ? 'ios-eye-off' : 'ios-eye')
+        setRightIcon(rightIcon === 'ios-eye' ? 'ios-eye-off' : 'ios-eye')
     }
 
     const handleOnLogin = async (values, actions) => {
@@ -58,7 +58,7 @@ const Login = (props) => {
                     props.firebase.signOut();
                     return;
                 }
-                else {                    
+                else {
                     props.firebase.User = response.user;
                     dispatch(checkUserAuth(true))
                     dispatch(setEmailVerification(true))
@@ -75,9 +75,12 @@ const Login = (props) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <HideWithKeyboard style={styles.logoContainer}>
+            {/* <HideWithKeyboard style={styles.logoContainer}>
                 <AppLogo />
-            </HideWithKeyboard>
+            </HideWithKeyboard> */}
+           
+                <Text style={styles.headerTextStyle}>Lets get started!</Text>
+            
             <Formik
                 initialValues={{ email: '', password: '' }}
                 onSubmit={(values, actions) => {
@@ -144,7 +147,7 @@ const Login = (props) => {
                 }}
                 type='clear'
             />
-             <Button
+            <Button
                 title="Reset Password"
                 onPress={goToResetPassword}
                 titleStyle={{
@@ -169,6 +172,10 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         margin: 25
+    },
+    headerTextStyle:{
+        textAlign:'center',
+        fontSize:18
     }
 })
 
