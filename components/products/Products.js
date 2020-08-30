@@ -1,15 +1,10 @@
 import React, { useEffect } from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { ScrollView, Text, TouchableWithoutFeedback } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { Card, Button } from "react-native-elements";
 
-import { getProducts } from "../../store/actions/productsActions";
-import { addProduct } from "../../store/actions/productsActions";
+import { getProducts, addProduct } from "../../store/actions/productsActions";
+import { styles } from "./productStyles";
 
 const Products = (props) => {
   const products = useSelector((state) => state.productsStore.products);
@@ -53,36 +48,5 @@ const Products = (props) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: 10,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly",
-  },
-  cardContainer: {
-    width: 150,
-    borderColor: "#03DAC6",
-    borderWidth: 2,
-    borderRadius: 10,
-  },
-  productPrice: {
-    marginBottom: 10,
-    fontSize: 18,
-    fontWeight: "500",
-    color: "blue",
-    textAlign: "center",
-  },
-  productDesc: {
-    marginBottom: 5,
-    maxHeight: 44,
-    overflow: "hidden",
-    minHeight: 45,
-  },
-  cartBtn: {
-    borderRadius: 10,
-  },
-});
 
 export default Products;

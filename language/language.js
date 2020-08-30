@@ -17,6 +17,7 @@ export const language = {
     products: "Products",
     productDetails: "Product Details",
     settings: "Settings",
+    cart: "Shopping Cart",
   },
   mr: {
     id: "mr",
@@ -36,5 +37,6 @@ export const language = {
     products: "उत्पादने",
     productDetails: "उत्पादन तपशील",
     settings: "सेटिंग्ज",
+    cart: "खरेदी सूचीत",
   },
 };
