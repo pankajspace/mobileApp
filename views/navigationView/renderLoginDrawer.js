@@ -3,7 +3,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import LoginView from "../LoginView";
 import SignupView from "../SignupView";
-import ResetPassword from "../resetPassword";
+import ResetPassword from "../ResetPassword";
 
 const SignInDrawer = createDrawerNavigator();
 

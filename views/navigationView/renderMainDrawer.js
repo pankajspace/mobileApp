@@ -10,7 +10,8 @@ import ProfileView from "../ProfileView";
 import ContactUsView from "../ContactUsView";
 import AboutUsView from "../AboutUsView";
 import SettingsView from "../SettingsView";
-import ResetPassword from "../resetPassword";
+import CartView from "../CartView";
+import ResetPassword from "../ResetPassword";
 
 const Drawer = createDrawerNavigator();
 
@@ -23,13 +24,14 @@ export const renderMainDrawer = (firebase) => {
       )}
     >
       <Drawer.Screen name={"Products"} component={ProductsView} />
+      <Drawer.Screen name={"Cart"} component={CartView} />
       <Drawer.Screen name={"Admin"} component={AdminView} />
       <Drawer.Screen name={"Worker"} component={WorkerView} />
       <Drawer.Screen name={"Customer"} component={CustomerView} />
       <Drawer.Screen name={"My Profile"} component={ProfileView} />
+      <Drawer.Screen name={"Reset Password"} component={ResetPassword} />
       <Drawer.Screen name={"Contact Us"} component={ContactUsView} />
       <Drawer.Screen name={"About Us"} component={AboutUsView} />
-      <Drawer.Screen name={"Reset Password"} component={ResetPassword} />
       <Drawer.Screen name={"Settings"} component={SettingsView} />
     </Drawer.Navigator>
   );
