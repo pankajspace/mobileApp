@@ -82,7 +82,7 @@ const Cart = (props) => {
     }
     return cartProducts.map((product) => {
       return (
-        <View style={styles.item}>
+        <View style={styles.item} key={product.id}>
           <Text style={[styles.text, styles.itemName]}>
             {product.name} (Total : ₹ {product.price * product.quantity})
           </Text>
