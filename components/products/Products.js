@@ -8,10 +8,10 @@ import { styles } from "./productStyles";
 
 const Products = (props) => {
   const products = useSelector((state) => state.productsStore.products);
-  const dispatchAction = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatchAction(getProducts());
+    dispatch(getProducts());
   }, [products]);
 
   const renderProducts = (products) => {
@@ -34,7 +34,7 @@ const Products = (props) => {
             <Button
               buttonStyle={styles.cartBtn}
               title="Add To Cart"
-              onPress={() => dispatchAction(addProduct(product))}
+              onPress={() => dispatch(addProduct(product))}
             />
           </Card>
         </TouchableWithoutFeedback>

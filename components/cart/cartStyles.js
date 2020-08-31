@@ -5,32 +5,43 @@ import Colors from "../../styles/colors";
 export const styles = StyleSheet.create({
   container: {
     padding: 10,
+    alignItems: "stretch",
   },
   item: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
     borderWidth: 1,
     borderColor: "#03DAC6",
     borderRadius: 10,
     padding: 10,
     margin: 10,
-    // backgroundColor: "lightgrey",
   },
   iconContainer: {
     flexDirection: "row",
-    justifyContent: "flex-end",
-    alignItems: "center",
+    justifyContent: "space-between",
   },
-  icon: {
-    marginHorizontal: 20,
-  },
+  icon: {},
+  deleteIcon: {},
   quantityText: {
-    width: 30,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: "red",
+    borderRadius: 5,
   },
   text: {
     color: Colors.primary,
     fontSize: 18,
   },
+  itemName: {
+    color: "#017374",
+    // paddingBottom: 2,
+    marginBottom: 20,
+    // borderBottomWidth: 1,
+    // borderBottomColor: "#017374",
+  },
+  orderText: { textAlign: "center" },
   orderBtn: {},
+  itemTotalPrice: {
+    // width: 100,
+    alignSelf: "flex-start",
+  },
+  marginHorizontal_20: { marginHorizontal: 20 },
 });

@@ -13,14 +13,16 @@ export const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
+    width: 70,
   },
   headerText: {
     fontSize: 16,
     color: "white",
   },
   icon: {
-    marginHorizontal: 20,
+    // marginHorizontal: 50,
+    // width: 30,
   },
-  badge: { position: "absolute", right: 10 },
+  badge: { position: "absolute", right: -10 },
 });
