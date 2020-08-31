@@ -68,7 +68,7 @@ const ResetPassword = (props) => {
                         buttonColor='#039BE5'
                         type="outline"
                         onPress={() => {
-                            props.navigation.navigate('SignIn');
+                            props.navigation.navigate('Login');
                         }} />
                 </View>
                 {showLoading &&

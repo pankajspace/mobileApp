@@ -39,3 +39,20 @@ export const subtractProductQuantity = (data) => {
   }
   return data.cartProducts;
 };
+
+export const removeProduct = (data) => {
+  console.log("removeProduct", data);
+  data.cartProducts = data.cartProducts.filter((product) => {
+    return product.id !== data.product.id;
+  });
+  return data.cartProducts;
+};
+
+export const getOrderTotal = (data) => {
+  console.log("getOrderTotal", data);
+  let orderTotal = 0;
+  data.cartProducts.forEach((product) => {
+    orderTotal += product.price * product.quantity
+  });
+  return orderTotal;
+};
