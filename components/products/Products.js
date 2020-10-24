@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { ScrollView, Text, TouchableWithoutFeedback } from "react-native";
+import { ScrollView, TouchableWithoutFeedback } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { Card, Button } from "react-native-elements";
 
+import Card from "../common/Card";
 import { getProducts, addProduct } from "../../store/actions/productsActions";
 import { styles } from "./productStyles";
 
@@ -14,29 +14,18 @@ const Products = (props) => {
     dispatch(getProducts());
   }, [products]);
 
+  const handleBtnClick = (product) => {
+    dispatch(addProduct(product));
+  };
+
   const renderProducts = (products) => {
     return products.map((product) => {
       return (
         <TouchableWithoutFeedback
-          onPress={() => props.navigation.navigate("ProductDetails")}
+          // onPress={() => props.navigation.navigate("ProductDetails")}
           key={product.id}
         >
-          <Card
-            title={product.name}
-            image={product.image}
-            containerStyle={styles.cardContainer}
-          >
-            <Text style={styles.productPrice}>
-              {"₹"}
-              {product.price}
-            </Text>
-            <Text style={styles.productDesc}>{product.desc}</Text>
-            <Button
-              buttonStyle={styles.cartBtn}
-              title="Add To Cart"
-              onPress={() => dispatch(addProduct(product))}
-            />
-          </Card>
+          <Card data={product} onButtonClick={handleBtnClick}></Card>
         </TouchableWithoutFeedback>
       );
     });

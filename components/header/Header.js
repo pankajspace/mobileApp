@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Icon, Badge } from "react-native-elements";
+import { MaterialIcons, Feather, SimpleLineIcons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
 
 import GlobalStyles from "../../styles/globalStyles";
@@ -16,8 +17,9 @@ const Header = (props) => {
   const renderMenu = () => {
     if (!props.hideMenu) {
       return (
-        <Icon
+        <SimpleLineIcons
           name="menu"
+          size={24}
           color="white"
           onPress={() => navigation.toggleDrawer()}
         />
@@ -34,17 +36,16 @@ const Header = (props) => {
         {children}
       </Text>
       <View style={styles.iconContainer}>
-        <Icon
-          name="translate"
+        <MaterialIcons
+          name="language"
+          size={24}
           color="white"
-          style={styles.icon}
           onPress={() => dispatch(changeLanguage(currentLanguage.id))}
         />
-        <Icon
-          type="fontawesome"
+        <Feather
           name="shopping-cart"
+          size={24}
           color="white"
-          style={styles.icon}
           onPress={() => navigation.navigate("Cart")}
         />
         <Badge
