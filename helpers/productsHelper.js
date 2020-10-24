@@ -52,7 +52,7 @@ export const getOrderTotal = (data) => {
   console.log("getOrderTotal", data);
   let orderTotal = 0;
   data.cartProducts.forEach((product) => {
-    orderTotal += product.price * product.quantity
+    orderTotal += product.price * product.quantity;
   });
   return orderTotal;
 };

@@ -7,6 +7,7 @@ import CustomerView from "../CustomerView";
 import AdminView from "../AdminView";
 import WorkerView from "../WorkerView";
 import ProfileView from "../ProfileView";
+import ServicesView from "../ServicesView";
 import ContactUsView from "../ContactUsView";
 import AboutUsView from "../AboutUsView";
 import SettingsView from "../SettingsView";
@@ -18,11 +19,12 @@ const Drawer = createDrawerNavigator();
 export const renderMainDrawer = (firebase) => {
   return (
     <Drawer.Navigator
-      initialRouteName="Products"
+      initialRouteName="Services"
       drawerContent={(props) => (
         <CustomDrawerContent firebase={firebase} {...props} />
       )}
     >
+      <Drawer.Screen name={"Services"} component={ServicesView} />
       <Drawer.Screen name={"Products"} component={ProductsView} />
       <Drawer.Screen name={"Cart"} component={CartView} />
       <Drawer.Screen name={"Admin"} component={AdminView} />

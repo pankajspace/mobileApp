@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { View, StyleSheet, Text, Button, Alert } from "react-native";
-import { Icon } from "react-native-elements";
 import { useSelector, useDispatch } from "react-redux";
-
+import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { styles } from "./cartStyles";
 import {
   subtractProductQuantity,
@@ -87,10 +86,10 @@ const Cart = (props) => {
             {product.name} (Total : ₹ {product.price * product.quantity})
           </Text>
           <View style={styles.iconContainer}>
-            <Icon
-              name="remove"
-              color="green"
-              style={styles.icon}
+            <Ionicons
+              name="ios-remove-circle-outline"
+              size={24}
+              color="skyblue"
               onPress={() => subtractProduct(product)}
             />
             <Text
@@ -102,16 +101,16 @@ const Cart = (props) => {
             >
               {product.quantity}
             </Text>
-            <Icon
-              name="add"
-              color="green"
-              style={styles.icon}
+            <Ionicons
+              name="ios-add-circle-outline"
+              size={24}
+              color="skyblue"
               onPress={() => addProduct(product)}
             />
-            <Icon
+            <AntDesign
               name="delete"
+              size={24}
               color="red"
-              style={[styles.icon, styles.deleteIcon]}
               onPress={() => confirmDelete(product)}
             />
           </View>
@@ -127,6 +126,7 @@ const Cart = (props) => {
         Order Total: ₹ {orderTotal}
       </Text>
       <Button
+        
         style={styles.orderBtn}
         title="Place Order"
         onPress={() => confirmOrder()}

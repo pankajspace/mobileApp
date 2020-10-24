@@ -12,11 +12,13 @@ import NavigationView from "./views/navigationView/NavigationView";
 import { appReducer } from "./store/reducers/appReducer";
 import { authReducer } from "./store/reducers/authReducer";
 import { productsReducer } from "./store/reducers/productsReducer";
+import { servicesReducer } from "./store/reducers/servicesReducer";
 
 const rootReducer = combineReducers({
   app: appReducer,
   auth: authReducer,
   productsStore: productsReducer,
+  servicesStore: servicesReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(reduxThunk));
